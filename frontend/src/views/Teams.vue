@@ -14,7 +14,7 @@
         :headers="headers"
         :items="team_list"
         :items-per-page="5"
-        class="elevation-1"
+         class="elevation-1"
       >
       </v-data-table>
 
