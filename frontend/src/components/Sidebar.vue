@@ -42,6 +42,11 @@ export default {
         pathTo: "/employee",
         logo: require("../assets/employee-logo.svg"),
       },
+      {
+        name: "Teams",
+        pathTo: "/teams",
+        logo: require("../assets/teams-logo.svg"),
+      }
     ],
   }),
   mounted() {
@@ -111,7 +116,6 @@ export default {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    width: calc(100% - 50px); // 100% - padding
     height: 50px;
     text-decoration: none;
     color: white;
