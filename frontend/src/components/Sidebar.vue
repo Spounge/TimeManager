@@ -84,7 +84,7 @@ export default {
     margin-bottom: 20px;
   }
   .employee-role {
-    font-weight: lighter;
+    font-weight: 200;
     font-size: 12px;
     margin-bottom: 12px;
   }
@@ -116,7 +116,7 @@ export default {
     text-decoration: none;
     color: white;
     font-size: 18px;
-    font-weight: lighter;
+    font-weight: 200;
     padding: 0 25px;
 
     .logos {
@@ -127,7 +127,7 @@ export default {
 
     &:hover,
     &.selected {
-      font-weight: bold;
+      font-weight: 400;
       background: rgba(92, 193, 255, 0.3);
 
       .triangle {
