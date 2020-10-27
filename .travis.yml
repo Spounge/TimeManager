@@ -4,6 +4,8 @@ services:
 jobs:
   include:
     - stage: Build & Push Image
+      before_script:
+        - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
       script:
         - docker build -t spounge/time_manager -f docker/api/Dockerfile .
         - docker push spounge/time_manager
