@@ -5,7 +5,7 @@ jobs:
   include:
     - stage: Build & Push Image
       script:
-        - docker build -t spounge/time_manager docker/api/
+        - docker build -t spounge/time_manager -f docker/api/Dockerfile .
         - docker push spounge/time_manager
     # - stage: Deploy
     #   script: skip
