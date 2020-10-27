@@ -1,27 +1,22 @@
 <template>
-  <div id="app">
+  <div>
     <Sidebar></Sidebar>
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Sidebar from './components/Sidebar.vue';
+import Sidebar from './components/Sidebar';
 
 export default {
-  components: {
-    Sidebar
-  }
-}
-</script>
+  name: 'App',
 
-<style lang="scss">
-#app {
-  display: flex;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-</style>
+  components: {
+    Sidebar,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>

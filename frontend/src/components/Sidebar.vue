@@ -7,6 +7,7 @@
         <div class="sidebar-nav">
             <router-link to="/">Dashboard</router-link>
             <router-link to="/employee">Employee</router-link>
+            <router-link to="/teams">Teams</router-link>
         </div>
     </div>
 </template>

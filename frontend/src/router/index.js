@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Dashboard from '../views/Dashboard.vue'
 import Employee from '../views/Employee.vue'
+import Teams from '../views/Teams.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
     path: '/employee/:id?',
     name: 'Employee',
     component: Employee
+  },
+  {
+    path: '/teams/:id?',
+    name: 'Teams',
+    component: Teams
   }
 ]
 
