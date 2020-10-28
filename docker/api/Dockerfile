@@ -44,8 +44,6 @@ COPY $APP_PATH .
 # Compile application
 RUN mix do deps.compile, compile
 
-# RUN echo $PGHOST $PGDATABASE $PGPORT
-
 # Execute entrypoint
 COPY $ENTRYPOINT_PATH /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]

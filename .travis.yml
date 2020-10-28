@@ -5,19 +5,19 @@ jobs:
   include:
     - stage: Build & Push Image
       before_script:
-        - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+        - docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
       script:
         - docker build -t spounge/time_manager -f docker/api/Dockerfile .
         - docker push spounge/time_manager
-    # - stage: Deploy
-    #   script: skip
-    #   deploy:
-    #     - provider: codedeploy
-    #       revision_type: github
-    #       access_key_id: $AWS_ACCESS_KEY_ID
-    #       secret_access_key: $AWS_SECRET_ACCESS_KEY
-    #       region: 'eu-west-2'
-    #       app: 'CI Comparison Blog'
-    #       env: 'CiComparisonBlog-env'
-    #       bucket_name: 'elasticbeanstalk-eu-west-2-094505317841'
-    #       bucket_path: 'CI Comparison Blog'
+    - stage: Deploy
+      script: skip
+      deploy:
+        - provider: elasticbeanstalk
+          region: 'eu-west-3'
+          access_key_id: $AWS_ACCESS_KEY_ID
+          secret_access_key:
+            secure: $AWS_SECRET_ACCESS_KEY
+          app: 'TimeManager'
+          env: 'Timemanager-env'
+          bucket_name: 'elasticbeanstalk-eu-west-3-254650023808'
+          bucket_path: 'application/TimeManager'
