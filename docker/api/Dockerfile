@@ -35,14 +35,14 @@ COPY $APP_PATH/assets ./assets/
 RUN cd assets/ && npm --yes install
 
 # Install phoenix dependencies
-COPY $APP_PATH/mix.exs .
-RUN mix deps.get --force
+# COPY $APP_PATH/mix.exs .
+# RUN mix deps.get --force
 
 # Copy application
 COPY $APP_PATH .
 
 # Compile application
-RUN mix do deps.compile --include-children, compile
+RUN mix do deps.get --force, deps.compile, compile
 
 # Execute entrypoint
 COPY $ENTRYPOINT_PATH /usr/local/bin/
