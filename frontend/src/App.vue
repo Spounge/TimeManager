@@ -33,25 +33,62 @@ export default {
 }
 
 .tile {
+  display: flex;
+  flex-direction: column;
+
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-
   .title {
     padding: 10px;
     font-size: 20px;
     font-weight: 600;
   }
+
+  .header {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 .button-green {
-  padding: 10px 20px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
+  padding: 10px 20px;
   border-radius: 5px;
   border: none;
   color: white;
   background: #00D46E;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.button-blue {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background: #066AA7;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 

@@ -3,7 +3,7 @@
     <header class="header">
       <h3 class="title">Clock Manager</h3>
     </header>
-    <div class="clock-container">
+    <div class="container">
       <h2 class="clock-time">00:00:00</h2>
     </div>
     <footer class="footer">
@@ -14,7 +14,6 @@
 
 <script>
 export default {
-
 };
 </script>
 
@@ -26,7 +25,7 @@ export default {
     display: flex;
     justify-content: flex-start;
   }
-  .clock-container {
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
