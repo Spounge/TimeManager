@@ -42,7 +42,7 @@ RUN mix deps.get --force
 COPY $APP_PATH .
 
 # Compile application
-RUN mix do deps.compile, compile
+RUN mix do deps.compile --include-children, compile
 
 # Execute entrypoint
 COPY $ENTRYPOINT_PATH /usr/local/bin/
