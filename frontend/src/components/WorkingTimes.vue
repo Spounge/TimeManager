@@ -7,9 +7,9 @@
       <v-simple-table>
         <thead>
           <tr>
-            <th class="text-left">Start</th>
-            <th class="text-left">End</th>
-            <th class="text-left">Lasted</th>
+            <th class="header-center">Start</th>
+            <th class="header-center">End</th>
+            <th class="header-center">Lasted</th>
           </tr>
         </thead>
         <tbody>
