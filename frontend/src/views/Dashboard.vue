@@ -3,7 +3,7 @@
     <ClockManager></ClockManager>
     <WorkingTime></WorkingTime>
     <WorkingTimes></WorkingTimes>
-    <Chart></Chart>
+    <UserChart></UserChart>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 import ClockManager from '../components/ClockManager';
 import WorkingTime from '../components/WorkingTime';
 import WorkingTimes from '../components/WorkingTimes';
-import Chart from '../components/Chart';
+import UserChart from '../components/UserChart';
 
 export default {
   name: "Home",
@@ -20,7 +20,7 @@ export default {
     ClockManager,
     WorkingTime,
     WorkingTimes,
-    Chart
+    UserChart,
   },
 };
 </script>
@@ -31,14 +31,17 @@ export default {
   width: 100%;
   padding: 20px;
   gap: 20px;
-  grid-template-rows: max-content;
-  grid-template-columns: max-content;
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
-    "A A A A A C C C C C C C"
-    "A A A A A C C C C C C C"
-    "B B B B B C C C C C C C"
-    "B B B B B C C C C C C C"
-    "B B B B B C C C C C C C"
+    "A A A A C C C C C C C C"
+    "A A A A C C C C C C C C"
+    "A A A A C C C C C C C C"
+    "B B B B C C C C C C C C"
+    "B B B B C C C C C C C C"
+    "B B B B C C C C C C C C"
+    "D D D D D D D D D D D D"
+    "D D D D D D D D D D D D"
     "D D D D D D D D D D D D"
     "D D D D D D D D D D D D"
     "D D D D D D D D D D D D"
