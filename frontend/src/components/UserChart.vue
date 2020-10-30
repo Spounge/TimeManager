@@ -2,7 +2,7 @@
   <div class="chart tile">
     <div class="header">
       <h3 class="title">Chart</h3>
-      <button @click="changeData()">Randomize</button>
+      <button @click="changeData()">Randomize Data 🙂</button>
     </div>
 
     <div class="container">
@@ -42,6 +42,17 @@ export default {
     weekWorkedHours: [8, 5, 4, 9, 5, 6, 7],
     weekNightShift: [2, 0, 4, 0, 0, 3, 2],
 
+    // * INITIAL DONUT DATA
+    donutDataCollection: {},
+    donutOptions: {
+      cutoutPercentage: 60,
+      responsive: true,
+      maintainAspectRatio: true,
+      legend: {
+        display: false,
+      },
+    },
+
     // * INITIAL BAR DATA
     barDataCollection: {},
     barOptions: {
@@ -66,16 +77,6 @@ export default {
         ],
       },
     },
-    // * INITIAL DONUT DATA
-    donutDataCollection: {},
-    donutOptions: {
-      cutoutPercentage: 60,
-      responsive: true,
-      maintainAspectRatio: false,
-      legend: {
-        display: false,
-      },
-    },
   }),
   mounted() {
     this.fillData();
@@ -91,10 +92,12 @@ export default {
             weight: 0.5,
             label: "Overtime",
             data: [this.overtime, overtimeDiff, 0],
+            borderWidth: 0,
             backgroundColor: ["#FFCB00", "#FFFFFF00", "#FFFFFF00"],
           },
           {
             weight: 1,
+            borderWidth: 1,
             data: [0, this.workedTime, remainingTime],
             backgroundColor: ["FFFFFF00", "#00D46E", "#AAAAAA"],
           },
@@ -160,14 +163,26 @@ export default {
 
     .chart-container {
       position: relative;
+      flex-grow: 1;
       width: 100%;
       height: 100%;
+      min-height: 0;
+
+      & > div {
+        position: relative;
+        height: 100%;
+      }
 
       .donut-caption {
         position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        z-index: 10;
         .title, .workhour {
           font-weight: 600;
           font-size: 28px;

@@ -3,7 +3,7 @@
     <ClockManager></ClockManager>
     <WorkingTime></WorkingTime>
     <WorkingTimes></WorkingTimes>
-    <Chart></Chart>
+    <UserChart></UserChart>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 import ClockManager from '../components/ClockManager';
 import WorkingTime from '../components/WorkingTime';
 import WorkingTimes from '../components/WorkingTimes';
-import Chart from '../components/Chart';
+import UserChart from '../components/UserChart';
 
 export default {
   name: "Home",
@@ -20,7 +20,7 @@ export default {
     ClockManager,
     WorkingTime,
     WorkingTimes,
-    Chart
+    UserChart,
   },
 };
 </script>

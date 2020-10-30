@@ -1,5 +1,9 @@
 <template>
   <div class="working-times tile">
+    <AddWorkingTime
+      :isActive="showForm"
+      :formToggler="toggleForm"
+    ></AddWorkingTime>
     <header class="header">
       <h3 class="title">Working Times</h3>
     </header>
@@ -22,21 +26,55 @@
       </v-simple-table>
     </div>
     <footer class="footer">
-      <button class="button-blue">Add Working Time</button>
+      <button class="button-blue" @click="toggleForm(true)">
+        Add Working Time
+      </button>
     </footer>
   </div>
 </template>
 
 <script>
+import AddWorkingTime from "../components/Modals/AddWorkingTime";
+
 export default {
+  components: {
+    AddWorkingTime,
+  },
   data: () => ({
+    showForm: false,
+
     workingTimesData: [
-      { id: 1, start: '21/10/2020 08:30', end: '21/10/2020 18:30', duration: '00:10:00' },
-      { id: 2, start: '21/10/2020 08:30', end: '21/10/2020 18:30', duration: '00:10:00' },
-      { id: 3, start: '21/10/2020 08:30', end: '21/10/2020 18:30', duration: '00:10:00' },
-      { id: 4, start: '21/10/2020 08:30', end: '21/10/2020 18:30', duration: '00:10:00' },
-    ]
+      {
+        id: 1,
+        start: "21/10/2020 08:30",
+        end: "21/10/2020 18:30",
+        duration: "00:10:00",
+      },
+      {
+        id: 2,
+        start: "21/10/2020 08:30",
+        end: "21/10/2020 18:30",
+        duration: "00:10:00",
+      },
+      {
+        id: 3,
+        start: "21/10/2020 08:30",
+        end: "21/10/2020 18:30",
+        duration: "00:10:00",
+      },
+      {
+        id: 4,
+        start: "21/10/2020 08:30",
+        end: "21/10/2020 18:30",
+        duration: "00:10:00",
+      },
+    ],
   }),
+  methods: {
+    toggleForm(show = true) {
+      this.showForm = show;
+    },
+  },
 };
 </script>
 
