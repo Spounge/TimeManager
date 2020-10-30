@@ -1,6 +1,8 @@
 <template>
   <div class="chart tile">
-      Chart
+      <header class="header">
+      <h3 class="title">Chart</h3>
+    </header>
   </div>
 </template>
 
@@ -11,5 +13,9 @@ export default {};
 <style lang="scss" scoped>
 .chart {
     grid-area: D;
+
+  .header {
+    display: flex;
+  }
 }
 </style>
