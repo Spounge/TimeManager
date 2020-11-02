@@ -25,11 +25,22 @@ export default {
   width: 100%;
   padding: 20px;
   gap: 20px;
-  grid-template-rows: min-content;
-  grid-template-columns: min-content;
+  // grid-template-rows: min-content;
+  // grid-template-columns: min-content;
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
     "E E E E E E E E E E E E"
     "E E E E E E E E E E E E"
+    "E E E E E E E E E E E E"
+    "E E E E E E E E E E E E"
+    "E E E E E E E E E E E E"
+    "E E E E E E E E E E E E"
+    "D D D D D D D D D D D D"
+    "D D D D D D D D D D D D"
+    "D D D D D D D D D D D D"
+    "D D D D D D D D D D D D"
+    "D D D D D D D D D D D D"
     "D D D D D D D D D D D D";
 }
 </style>

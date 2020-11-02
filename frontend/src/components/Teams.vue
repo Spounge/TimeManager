@@ -13,7 +13,7 @@
                   {{ team.message }}
                   </option>
               </select>
-              <button class="button-blue btn-create-team" @click="toggleForm(true)">Create Team</button>
+              <button class="button-blue btn-create-team" @click="toggleModal(true)">Create Team</button>
           </div>
       </header>
       <br>
@@ -25,6 +25,7 @@
                     <th class="text-left">Email</th>
                     <th class="text-left">Role</th>
                     <th class="text-left">Active</th>
+                    <th class="text-left">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -33,6 +34,31 @@
                   <td class="text-tab">{{ teamTable.email }}</td>
                   <td class="text-tab">{{ teamTable.role }}</td>
                   <td class="text-tab">{{ teamTable.active }}</td>
+                  <td> <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="blue darken-1"
+                      text
+                      @click="close"
+                    >
+                    <img class="logos" src="../assets/user-tab-logo.svg"/>
+                    </v-btn>
+                    <v-btn
+                      color="blue darken-1"
+                      text
+                      @click="save"
+                    >
+                      <img class="logos" src="../assets/pencil-logo.svg"/>
+                    </v-btn>
+                    <v-btn
+                      color="blue darken-1"
+                      text
+                      @click="save"
+                    >
+                      <img class="logos" src="../assets/trash-simple.svg"/>
+                    </v-btn>
+                  </v-card-actions>
+                  </td>
                 </tr>
               </tbody>
           </v-simple-table>
@@ -52,13 +78,15 @@ export default {
   },
 
   data: () => ({
-    isActive: false,
+    return: {
+      isActive: false,
+    },
 
     teamTablesData: [
-      { id: 1, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: "°" },
-      { id: 2, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: "°" },
-      { id: 3, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: "°" },
-      { id: 4, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: "°" },
+      { id: 1, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: false},
+      { id: 2, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: true},
+      { id: 3, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: false},
+      { id: 4, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: false},
     ],
   
     teams: [
@@ -74,12 +102,6 @@ export default {
       this.isActive = show
     }
   },
-
-  
-  // methods: {
-  //   toggleForm(show = true) {
-  //     this.showForm = show;
-  //   },
 };
 </script>
 
