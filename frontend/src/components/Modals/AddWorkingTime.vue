@@ -102,6 +102,9 @@ export default {
         grid-template-columns: 1fr 2fr;
         align-items: center;
         margin: 20px 0;
+        & > * {
+          cursor: pointer;
+        }
         label {
           justify-self: flex-end;
           font-weight: 600;
