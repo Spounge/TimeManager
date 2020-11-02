@@ -13,6 +13,18 @@ defmodule TimeManagerWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", TimeManagerWeb do
+    pipe_through :api
+
+    resources "/roles", RoleController
+    resources "/users", UserController
+    resources "/teams", TeamController
+    resources "/users_teams", UserTeamController
+    resources "/working_times", WorkingTimeController
+
+    get "/working_times_by_user/:id", WorkingTimeController, :getAllByUserId
+  end
+
   scope "/", TimeManagerWeb do
     pipe_through :browser
 

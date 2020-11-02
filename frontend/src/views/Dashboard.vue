@@ -34,12 +34,12 @@ export default {
   grid-template-rows: repeat(12, 1fr);
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
-    "A A A A C C C C C C C C"
-    "A A A A C C C C C C C C"
-    "A A A A C C C C C C C C"
-    "B B B B C C C C C C C C"
-    "B B B B C C C C C C C C"
-    "B B B B C C C C C C C C"
+    "A A A A A C C C C C C C"
+    "A A A A A C C C C C C C"
+    "A A A A A C C C C C C C"
+    "B B B B B C C C C C C C"
+    "B B B B B C C C C C C C"
+    "B B B B B C C C C C C C"
     "D D D D D D D D D D D D"
     "D D D D D D D D D D D D"
     "D D D D D D D D D D D D"

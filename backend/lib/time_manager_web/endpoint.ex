@@ -7,7 +7,7 @@ defmodule TimeManagerWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_time_manager_key",
-    signing_salt: "BcL3pA7y"
+    signing_salt: "R2WBiyUd"
   ]
 
   socket "/socket", TimeManagerWeb.UserSocket,
