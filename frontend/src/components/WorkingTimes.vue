@@ -14,6 +14,7 @@
             <th class="header-center">Start</th>
             <th class="header-center">End</th>
             <th class="header-center">Lasted</th>
+            <!-- <th class="header-center">Actions</th> -->
           </tr>
         </thead>
         <tbody>
@@ -21,6 +22,20 @@
             <td>{{ workingTime.start }}</td>
             <td>{{ workingTime.end }}</td>
             <td>{{ workingTime.duration }}</td>
+            <!-- <td>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-1" text @click="close">
+                  <img class="logos" src="../assets/user-tab-logo.svg" />
+                </v-btn>
+                <v-btn color="blue darken-1" text @click="save">
+                  <img class="logos" src="../assets/pencil-logo.svg" />
+                </v-btn>
+                <v-btn color="blue darken-1" text @click="save">
+                  <img class="logos" src="../assets/trash-simple.svg" />
+                </v-btn>
+              </v-card-actions>
+            </td> -->
           </tr>
         </tbody>
       </v-simple-table>
