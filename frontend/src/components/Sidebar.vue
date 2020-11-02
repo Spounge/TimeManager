@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: "Sidebar",
   data: () => ({
@@ -51,7 +53,13 @@ export default {
   }),
   mounted() {
     console.log("mounted -> this.$route", this.$route);
+    console.log(this.user)
   },
+  computed: {
+    ...mapState('user', {
+      user: state => state
+    })
+  }
 };
 </script>
 
