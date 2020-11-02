@@ -22,17 +22,23 @@
               <thead>
                 <tr>
                     <th class="text-left">Username</th>
+                    <th class="text-left"></th>
                     <th class="text-left">Email</th>
+                    <th class="text-left"></th>
                     <th class="text-left">Role</th>
+                    <th class="text-left"></th>
                     <th class="text-left">Active</th>
-                    <th class="text-left">Actions</th>
+                    <th class="text-left"></th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="teamTable in teamTablesData" :key="teamTable.id">
                   <td class="text-tab">{{ teamTable.username }}</td>
+                  <td class="text-tab"></td>
                   <td class="text-tab">{{ teamTable.email }}</td>
+                  <td class="text-tab"></td>
                   <td class="text-tab">{{ teamTable.role }}</td>
+                  <td class="text-tab"></td>
                   <td class="text-tab">{{ teamTable.active }}</td>
                   <td> <v-card-actions>
                     <v-spacer></v-spacer>
@@ -78,9 +84,7 @@ export default {
   },
 
   data: () => ({
-    return: {
       isActive: false,
-    },
 
     teamTablesData: [
       { id: 1, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: false},
@@ -98,7 +102,7 @@ export default {
   }),
 
   methods: {
-    toggleModal(show = true) { // ici on creer un parametre pour pouvoir decider de mettre isActive a True ou False celon nos besoin
+    toggleModal(show = true) {
       this.isActive = show
     }
   },
@@ -122,8 +126,13 @@ export default {
   .container {
     justify-content: flex-start;
     align-items: flex-start;
+    table-layout: auto;
+    width: 100%;
+    min-height: 30%;
+
     .v-data-table {
       min-width: 100%;
+      
       .text-tab {
         color: black;
       }
