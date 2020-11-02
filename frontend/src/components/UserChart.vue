@@ -47,7 +47,7 @@ export default {
     donutOptions: {
       cutoutPercentage: 60,
       responsive: true,
-      maintainAspectRatio: true,
+      maintainAspectRatio: false,
       legend: {
         display: false,
       },
@@ -156,6 +156,7 @@ export default {
     position: relative;
     display: grid;
     width: 100%;
+    height: calc(100% - 40px);
     gap: 50px;
     grid-template-columns: 4fr 8fr;
     margin: 0;
