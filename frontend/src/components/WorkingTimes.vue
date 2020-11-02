@@ -8,34 +8,35 @@
       <h3 class="title">Working Times</h3>
     </header>
     <div class="container">
-      <v-simple-table>
-        <thead>
-          <tr>
+      <v-simple-table class="table">
+        <thead class="table-header">
+          <tr class="table-h-row">
             <th class="header-center">Start</th>
             <th class="header-center">End</th>
             <th class="header-center">Lasted</th>
-            <!-- <th class="header-center">Actions</th> -->
+            <th class="header-center">Actions</th>
           </tr>
         </thead>
-        <tbody>
-          <tr v-for="workingTime in workingTimesData" :key="workingTime.id">
+        <tbody class="table-body">
+          <tr
+            class="table-b-row"
+            v-for="workingTime in workingTimesData"
+            :key="workingTime.id"
+          >
             <td>{{ workingTime.start }}</td>
             <td>{{ workingTime.end }}</td>
             <td>{{ workingTime.duration }}</td>
-            <!-- <td>
+            <td>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="close">
-                  <img class="logos" src="../assets/user-tab-logo.svg" />
-                </v-btn>
-                <v-btn color="blue darken-1" text @click="save">
+                <v-btn color="blue darken-1" text @click="edit()">
                   <img class="logos" src="../assets/pencil-logo.svg" />
                 </v-btn>
-                <v-btn color="blue darken-1" text @click="save">
+                <v-btn color="blue darken-1" text @click="remove()">
                   <img class="logos" src="../assets/trash-simple.svg" />
                 </v-btn>
               </v-card-actions>
-            </td> -->
+            </td>
           </tr>
         </tbody>
       </v-simple-table>
@@ -89,6 +90,15 @@ export default {
     toggleForm(show = true) {
       this.showForm = show;
     },
+    save() {
+
+    },
+    edit() {
+
+    },
+    delete() {
+
+    }
   },
 };
 </script>
@@ -106,6 +116,10 @@ export default {
     align-items: flex-start;
     .v-data-table {
       min-width: 100%;
+
+      .table-body .table-b-row {
+        padding: 0 !important;
+      }
     }
   }
 
