@@ -6,7 +6,7 @@
     <div class="working-time-grid">
       <div class="working-time-content">
         <div class="title-container">
-          <h4 class="title">9h</h4>
+          <h4 class="title">{{todayWorkedHours}}h</h4>
         </div>
         <div class="label-container">
           <h5>(Today)</h5>
@@ -16,7 +16,7 @@
 
       <div class="working-time-content">
         <div class="title-container">
-          <h4 class="title">35h</h4>
+          <h4 class="title">{{weekWorkedHours}}h</h4>
         </div>
         <div class="label-container">
           <h5>(Week)</h5>
@@ -26,7 +26,7 @@
 
       <div class="working-time-content">
         <div class="title-container">
-          <h4 class="title">$1250</h4>
+          <h4 class="title">${{weekRevenu}}</h4>
         </div>
         <div class="label-container">
           <h5>(Week)</h5>
@@ -38,7 +38,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    // TODO fetch these from the api
+    todayWorkedHours: 9,
+    weekWorkedHours: 35,
+    weekRevenu: 1250,
+  })
+};
 </script>
 
 <style lang="scss" scoped>
