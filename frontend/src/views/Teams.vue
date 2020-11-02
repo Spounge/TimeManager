@@ -1,20 +1,20 @@
 <template>
   <div class="teams-page">
     <Teams></Teams>
-    <Chart></Chart>
+    <UserChart></UserChart>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Teams from '../components/Teams';
-import Chart from '../components/Chart';
+import UserChart from '../components/UserChart';
 
 export default {
   name: "Home",
   components: {
     Teams,
-    Chart
+    UserChart,
   },
 };
 </script>
@@ -25,8 +25,8 @@ export default {
   width: 100%;
   padding: 20px;
   gap: 20px;
-  grid-template-rows: max-content;
-  grid-template-columns: max-content;
+  grid-template-rows: min-content;
+  grid-template-columns: min-content;
   grid-template-areas:
     "E E E E E E E E E E E E"
     "E E E E E E E E E E E E"
