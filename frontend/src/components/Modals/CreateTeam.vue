@@ -10,7 +10,27 @@
         <header class="header">
           <h2 class="title">Create your Team</h2>
         </header>
-
+        <v-simple-table class="container">
+          <thead>
+            <tr>
+              <th class="header-center">Username</th>
+              <th></th>
+              <th></th>       
+              </tr>
+          </thead>
+          <tbody>
+            <tr v-for="selectEmployee in selectEmployeesData" :key="selectEmployee.id">
+              <td>{{ selectEmployee.name }}</td>
+              <td></td>
+              <td>
+              <v-simple-checkbox
+                v-model="selectEmployee.select"
+                disabled
+              ></v-simple-checkbox>
+              </td>
+            </tr>
+          </tbody>
+        </v-simple-table>
         <footer class="footer">
           <button type="submit" class="button-green">Create</button>
         </footer>
@@ -20,22 +40,42 @@
 
 <script>
 export default {
+
+  data: () => ({
+    selectEmployeesData: [
+      {
+        id: 1,
+        name: "John",
+        select: true,
+      },
+      {
+        id: 2,
+        name: "John",
+        select: false,
+      },
+      {
+        id: 3,
+        name: "John",
+        select: true,
+      },
+      {
+        id: 4,
+        name: "John",
+        select: false,
+      },
+    ],
+  }),
+
   props: {
     isActive: {
       type: Boolean,
       default: false
     },
-    formToggler: {
+    toggleModal: {
       type: Function,
       default: null
     }
   },
-  data: () => ({
-    workingTimeData: {
-      start: null,
-      end: null
-    }
-  }),
 };
 </script>
 
@@ -61,35 +101,26 @@ export default {
 
   .modal-container {
     position: relative;
-    width: 60%;
+    width: 30%;
     margin-top: 5%;
 
     .modal-form {
       display: flex;
       flex-direction: column;
       align-items: center;
-
       padding: 20px;
-      .inputs {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        align-items: center;
-        margin: 20px 0;
-        label {
-          justify-self: flex-end;
-          font-weight: 600;
-          padding: 0 10px;
-        }
-        input {
-          justify-self: flex-start;
-          padding: 0 10px;
-        }
       }
     }
-
-    .button-green {
-      color: white;
-    }
+  
+.container{
+  justify-content: center;
+  .header-center {
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+.button-green {
+  color: white;
   }
 }
 </style>

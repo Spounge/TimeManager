@@ -1,8 +1,8 @@
 <template>
   <div class="teams tile">
     <CreateTeam
-    :isActive="isActive"
-    :toggleModal="toggleModal"
+      :isActive="isActive"
+      :toggleModal="toggleModal"
     ></CreateTeam>
       <header class="header">
           <h1 class="title">Teams page</h1>
@@ -33,13 +33,13 @@
               </thead>
               <tbody>
                 <tr v-for="teamTable in teamTablesData" :key="teamTable.id">
-                  <td class="text-tab">{{ teamTable.username }}</td>
-                  <td class="text-tab"></td>
-                  <td class="text-tab">{{ teamTable.email }}</td>
-                  <td class="text-tab"></td>
-                  <td class="text-tab">{{ teamTable.role }}</td>
-                  <td class="text-tab"></td>
-                  <td class="text-tab">{{ teamTable.active }}</td>
+                  <td>{{ teamTable.username }}</td>
+                  <td></td>
+                  <td>{{ teamTable.email }}</td>
+                  <td></td>
+                  <td>{{ teamTable.role }}</td>
+                  <td></td>
+                  <td>{{ teamTable.active }}</td>
                   <td> <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
@@ -126,8 +126,6 @@ export default {
   .container {
     justify-content: flex-start;
     align-items: flex-start;
-    table-layout: auto;
-    width: 100%;
     min-height: 30%;
 
     .v-data-table {
