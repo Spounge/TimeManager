@@ -7,7 +7,7 @@
       <h4 class="employee-role">{{ user.role }}</h4>
       <h3 class="employee-name">{{ userFullname }}</h3>
     </div>
-    <div class="sidebar-header" v-else>
+    <div class="sidebar-header employee" v-else>
       <div class="select-container">
         <v-select
           v-model="selectedRole"
@@ -64,33 +64,38 @@ export default {
 <style lang="scss">
 .sidebar-header-container, .sidebar-header {
   width: 100%;
-  transition: all 1s ease;
+  // transition: all 0.5s ease;
 }
 
 .sidebar-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  margin: 30px 0;
+
+  &.employee {
+    margin: 20px 0 20px 0;
+  }
 
   .avatar-circle {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     border-radius: 100%;
     font-size: 48px;
     background: white;
     border: 5px solid lightgrey;
     color: lightgrey;
 
-    margin-bottom: 20px;
+    margin: 30px;
 
     &.employee {
       width: 175px;
       height: 175px;
+      margin: 0 0 15px 0;
     }
   }
 
@@ -138,6 +143,10 @@ export default {
       transform: translateY(-20px) scale(1);
       color: rgba(255, 255, 255, 0.7) !important;
       // left: -18px !important;
+    }
+    .v-text-field {
+        padding-top: 0 !important;
+        margin-top: 4px;
     }
   }
 }
