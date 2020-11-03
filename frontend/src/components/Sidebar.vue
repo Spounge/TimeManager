@@ -48,6 +48,11 @@ export default {
         name: "Teams",
         pathTo: "/teams",
         logo: require("../assets/teams-logo.svg"),
+      },
+      {
+        name: "Settings",
+        pathTo: "/settings",
+        logo: require("../assets/settings-logo.svg"),
       }
     ],
   }),
