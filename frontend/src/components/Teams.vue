@@ -4,11 +4,15 @@
       :isActive="isActive"
       :toggleModal="toggleModal"
     ></CreateTeam>
+    <AddEmployee
+      :isActive2="isActive2"
+      :toggleModal2="toggleModal2"
+    ></AddEmployee>
       <header class="header">
           <h1 class="title">Teams page</h1>
           <div class= "left">
-              <select class="search-bar" v-model="team">
-                  <option value="0" disabled selected>Select team</option>
+              <select class="search-bar">
+                  <option class="value0" value="0" disabled selected>select team</option>
                   <option v-for="team in teams" :key="team.message">
                   {{ team.message }}
                   </option>
@@ -70,21 +74,25 @@
           </v-simple-table>
       </div>
       <footer class="footer">
-          <button class="button-blue">Add employee</button>
+          <button class="button-blue"
+          @click="toggleModal2(true)">Add employee</button>
       </footer>
   </div>
 </template>
 
 <script>
 import CreateTeam from "../components/Modals/CreateTeam";
+import AddEmployee from "../components/Modals/AddEmployee";
 
 export default {
   components: {
     CreateTeam,
+    AddEmployee
   },
 
   data: () => ({
       isActive: false,
+      isActive2: false,
 
     teamTablesData: [
       { id: 1, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: false},
@@ -93,6 +101,8 @@ export default {
       { id: 4, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: false},
     ],
   
+    // selection: [],
+    // teams: ['Team1', 'Team2', 'Team3', 'Team4'],
     teams: [
       { message: 'team1' },
       { message: 'team2' },
@@ -104,6 +114,9 @@ export default {
   methods: {
     toggleModal(show = true) {
       this.isActive = show
+    },
+    toggleModal2(show = true) {
+      this.isActive2 = show
     }
   },
 };
@@ -125,7 +138,7 @@ export default {
 
   .container {
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     min-height: 30%;
 
     .v-data-table {
