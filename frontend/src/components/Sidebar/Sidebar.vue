@@ -69,14 +69,15 @@ export default {
   align-items: center;
 
   height: 100%;
-  min-width: 250px;
+  min-width: 300px;
+  max-width: 300px;
   color: white;
   background: #066aa7;
 }
 
 .white-line {
   height: 0.5px;
-  width: 200px;
+  width: 250px;
   background: white;
 }
 
