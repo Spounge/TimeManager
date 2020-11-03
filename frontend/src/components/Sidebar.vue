@@ -1,6 +1,12 @@
 <template>
   <div class="sidebar">
-    <SidebarHeader></SidebarHeader>
+    <div class="sidebar-header">
+      <div class="avatar-circle">
+        <h2>JD</h2>
+      </div>
+      <h4 class="employee-role">Top Manager</h4>
+      <h3 class="employee-name">John Doe</h3>
+    </div>
 
     <span class="white-line"></span>
 
@@ -22,30 +28,31 @@
 
 <script>
 import { mapState } from 'vuex';
-import SidebarHeader from './SidebarHeader';
 
 export default {
   name: "Sidebar",
-  components: {
-    SidebarHeader
-  },
   data: () => ({
     // * ROUTES LIST
     routesList: [
       {
         name: "Dashboard",
         pathTo: "/",
-        logo: require("../../assets/dashboard-logo.svg"),
+        logo: require("../assets/dashboard-logo.svg"),
       },
       {
         name: "Employee",
         pathTo: "/employee",
-        logo: require("../../assets/employee-logo.svg"),
+        logo: require("../assets/employee-logo.svg"),
       },
       {
         name: "Teams",
         pathTo: "/teams",
-        logo: require("../../assets/teams-logo.svg"),
+        logo: require("../assets/teams-logo.svg"),
+      },
+      {
+        name: "Settings",
+        pathTo: "/settings",
+        logo: require("../assets/settings-logo.svg"),
       }
     ],
   }),
@@ -69,15 +76,46 @@ export default {
   align-items: center;
 
   height: 100%;
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 250px;
   color: white;
   background: #066aa7;
 }
 
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .avatar-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 175px;
+    height: 175px;
+    border-radius: 100%;
+    font-size: 48px;
+    background: white;
+    border: 5px solid lightgrey;
+    color: lightgrey;
+
+    margin-bottom: 20px;
+  }
+  .employee-role {
+    font-weight: 200;
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  .employee-name {
+    font-weight: bolder;
+    font-size: 18px;
+  }
+  margin: 30px 0;
+}
+
 .white-line {
   height: 0.5px;
-  width: 250px;
+  width: 200px;
   background: white;
 }
 

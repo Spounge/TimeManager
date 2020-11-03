@@ -1,5 +1,5 @@
 <template>
-  <div class="working-times tile" ref="workingTimesDiv">
+  <div class="working-times tile">
     <AddWorkingTime
       :isActive="showForm"
       :formToggler="toggleForm"
@@ -8,11 +8,7 @@
       <h3 class="title">Working Times</h3>
     </header>
     <div class="container">
-      <v-simple-table
-        class="table"
-        fixed-header
-        :height="tableHeight"
-      >
+      <v-simple-table class="table">
         <thead class="table-header">
           <tr class="table-h-row">
             <th class="header-center">Start</th>
@@ -88,31 +84,8 @@ export default {
         end: "21/10/2020 18:30",
         duration: "00:10:00",
       },
-      {
-        id: 5,
-        start: "21/10/2020 08:30",
-        end: "21/10/2020 18:30",
-        duration: "00:10:00",
-      },
-      {
-        id: 6,
-        start: "21/10/2020 08:30",
-        end: "21/10/2020 18:30",
-        duration: "00:10:00",
-      },
-      {
-        id: 7,
-        start: "21/10/2020 08:30",
-        end: "21/10/2020 18:30",
-        duration: "00:10:00",
-      },
     ],
-
-    tableHeight: null,
   }),
-  mounted() {
-    this.tableHeight = `${this.$refs.workingTimesDiv.clientHeight - 120}px`;
-  },
   methods: {
     toggleForm(show = true) {
       this.showForm = show;
@@ -139,11 +112,8 @@ export default {
   }
 
   .container {
-    position: relative;
     justify-content: flex-start;
     align-items: flex-start;
-    // height: calc(100% - 80px);
-    // overflow-y: scroll;
     .v-data-table {
       min-width: 100%;
 

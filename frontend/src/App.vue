@@ -1,12 +1,12 @@
 <template>
-  <div id="app" data-app>
+  <div id="app">
     <Sidebar></Sidebar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Sidebar from './components/Sidebar/Sidebar';
+import Sidebar from './components/Sidebar';
 
 export default {
   name: 'App',
