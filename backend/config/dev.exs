@@ -1,11 +1,12 @@
 use Mix.Config
 
 # Configure your database
-config :time_manager, TimeManager.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "time_manager_dev",
-  hostname: "localhost",
+config :api, Api.Repo,
+  username: System.get_env("PGUSER") || raise("error PGUSER variable"),
+  password: System.get_env("PGPASSWORD") || raise("error PGPASSWORD variable"),
+  database: System.get_env("PGDATABASE") || raise("error PGDATABASE variable"),
+  hostname: System.get_env("PGHOST") || raise("error PGHOST variable"),
+  port: System.get_env("PGPORT") || raise("error PGPORT variable"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -15,9 +16,9 @@ config :time_manager, TimeManager.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :time_manager, TimeManagerWeb.Endpoint,
+config :api, ApiWeb.Endpoint,
   http: [port: 4000],
-  debug_errors: true,
+  debug_errors: false,
   code_reloader: true,
   check_origin: false,
   watchers: [
@@ -55,13 +56,13 @@ config :time_manager, TimeManagerWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :time_manager, TimeManagerWeb.Endpoint,
+config :api, ApiWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/time_manager_web/(live|views)/.*(ex)$",
-      ~r"lib/time_manager_web/templates/.*(eex)$"
+      ~r"lib/api_web/(live|views)/.*(ex)$",
+      ~r"lib/api_web/templates/.*(eex)$"
     ]
   ]
 
