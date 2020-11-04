@@ -1,4 +1,4 @@
-defmodule TimeManager.DataCase do
+defmodule Api.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule TimeManager.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use TimeManager.DataCase, async: true`, although
+  by setting `use Api.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,20 +18,20 @@ defmodule TimeManager.DataCase do
 
   using do
     quote do
-      alias TimeManager.Repo
+      alias Api.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import TimeManager.DataCase
+      import Api.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(TimeManager.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Api.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(TimeManager.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Api.Repo, {:shared, self()})
     end
 
     :ok
