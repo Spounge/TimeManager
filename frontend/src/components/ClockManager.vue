@@ -4,16 +4,43 @@
       <h3 class="title">Clock Manager</h3>
     </header>
     <div class="container">
-      <h2 class="clock-time">00:00:00</h2>
+      <h2 class="clock-time" v-if="$route.name === 'Dashboard'">
+        {{ currentTime }}
+      </h2>
+      <h2 class="clock-time" v-else>
+        00:00:00
+      </h2>
     </div>
-    <footer class="footer">
-      <button class="button-green">Start Time</button>
+    <footer class="footer" v-if="$route.name === 'Dashboard'">
+      <button
+        class="button-green"
+        v-if="clock.timerInterval == null"
+        @click="startTimer()"
+      >
+        Start Time
+      </button>
+      <button
+        class="button-red"
+        v-else
+        @click="stopTimer()"
+      >
+        Stop Time
+      </button>
     </footer>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters, mapState } from "vuex";
+
 export default {
+  computed: {
+    ...mapState("clock", { clock: (state) => state }),
+    ...mapGetters("clock", { currentTime: "currentTime" }),
+  },
+  methods: {
+    ...mapActions("clock", ["startTimer", "stopTimer"]),
+  },
 };
 </script>
 

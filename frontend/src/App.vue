@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import Sidebar from './components/Sidebar/Sidebar';
+import Sidebar from "./components/Sidebar/Sidebar";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
     Sidebar,
@@ -39,7 +39,7 @@ export default {
 
   padding: 10px;
   border-radius: 5px;
-  background: #FFF;
+  background: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   .title {
     padding: 10px;
@@ -64,33 +64,33 @@ export default {
 }
 
 .button-green {
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  background: #00D46E;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-
+  background: #00d46e;
   &:hover {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transform: scale(1.01);
-  }
-  &:focus {
-    outline: none;
+    background: lighten(#00d46e, 2%);
   }
 }
-
 .button-blue {
+  background: #066aa7;
+  &:hover {
+    background: lighten(#066aa7, 2%);
+  }
+}
+.button-red {
+  background: #e43535;
+  &:hover {
+    background: lighten(#e43535, 2%);
+  }
+}
+
+.button-blue,
+.button-green,
+.button-red {
   font-size: 16px;
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
   color: white;
-  background: #066AA7;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 
@@ -102,5 +102,4 @@ export default {
     outline: none;
   }
 }
-
 </style>
