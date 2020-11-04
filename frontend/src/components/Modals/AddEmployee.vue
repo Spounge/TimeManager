@@ -1,9 +1,9 @@
 <template>
-  <div class="modal-background" 
+  <div class="modal-background"
   :class="{ active: isActive2 }"
   @click.stop="toggleModal2(false)"
   >
-      <form 
+      <form
       class="modal-container tile"
       @submit.prevent="addEmployee()"
       @click.stop>
@@ -11,13 +11,13 @@
           <h2 class="title">Add employee</h2>
         </header>
         <v-select
-        :Employees="Employees"
-        v-model="select"
-        item-text="name"
-        item-value="id"
-        return-object
-        label="select"
-        dense
+          :items="employees"
+          v-model="selectedEmployee"
+          item-text="name"
+          item-value="id"
+          return-object
+          label="select"
+          dense
         ></v-select>
         <footer class="footer">
           <button type="submit" class="button-green">Add</button>
@@ -30,24 +30,25 @@
 export default {
 
   data: () => ({
-    Employees: [
+    employees: [
       {
         id: 1,
         name: "John",
       },
       {
         id: 2,
-        name: "John",
+        name: "Johnny",
       },
       {
         id: 3,
-        name: "John",
+        name: "Johnson",
       },
       {
         id: 4,
-        name: "John",
+        name: "Johnathan",
       },
     ],
+    selectedEmployee: null
   }),
 
   props: {
@@ -95,7 +96,7 @@ export default {
       padding: 20px;
       }
     }
-  
+
 .container{
   justify-content: center;
   .header-center {
