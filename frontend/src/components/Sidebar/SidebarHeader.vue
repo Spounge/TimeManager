@@ -71,7 +71,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 30px 0;
+  margin: 0 0 30px 0;
 
   &.employee {
     margin: 20px 0 20px 0;
