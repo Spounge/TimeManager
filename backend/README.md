@@ -1,4 +1,4 @@
-# Api
+# TimeManagerApi
 
 To start your Phoenix server:
 

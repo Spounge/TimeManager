@@ -1,4 +1,4 @@
-defmodule ApiWeb.ChannelCase do
+defmodule TimeManagerApiWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -11,7 +11,7 @@ defmodule ApiWeb.ChannelCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use ApiWeb.ChannelCase, async: true`, although
+  by setting `use TimeManagerApiWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -21,18 +21,18 @@ defmodule ApiWeb.ChannelCase do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
-      import ApiWeb.ChannelCase
+      import TimeManagerApiWeb.ChannelCase
 
       # The default endpoint for testing
-      @endpoint ApiWeb.Endpoint
+      @endpoint TimeManagerApiWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Api.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(TimeManagerApi.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Api.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(TimeManagerApi.Repo, {:shared, self()})
     end
 
     :ok

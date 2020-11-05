@@ -7,16 +7,17 @@
 # General application configuration
 use Mix.Config
 
-config :api,
-  ecto_repos: [Api.Repo]
+config :backend,
+  namespace: TimeManagerApi,
+  ecto_repos: [TimeManagerApi.Repo]
 
 # Configures the endpoint
-config :api, ApiWeb.Endpoint,
+config :backend, TimeManagerApiWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "qQxid45A3HbanN6lhwlNlIg2u/hncxSGzO6gNOOQ1iFcuhVbCFssiNrXyZclkg4s",
-  render_errors: [view: ApiWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Api.PubSub,
-  live_view: [signing_salt: "/fm8RfPY"]
+  secret_key_base: "BIsAXFmmzSnD7OWivUXc2Rc6SHbeDmir5UpIop/kdk6T+UvnaAgS+f2TqW20hoYc",
+  render_errors: [view: TimeManagerApiWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: TimeManagerApi.PubSub,
+  live_view: [signing_salt: "03QPRWu4"]
 
 # Configures Elixir's Logger
 config :logger, :console,
