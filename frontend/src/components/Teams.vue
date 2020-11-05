@@ -100,7 +100,7 @@ export default {
       { id: 3, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: false},
       { id: 4, username: "John", email: "john.toe@bla.com", role: "Top Manager", active: false},
     ],
-  
+
     // selection: [],
     // teams: ['Team1', 'Team2', 'Team3', 'Team4'],
     teams: [
@@ -117,7 +117,9 @@ export default {
     },
     toggleModal2(show = true) {
       this.isActive2 = show
-    }
+    },
+    save() {},
+    close() {},
   },
 };
 </script>
@@ -125,7 +127,7 @@ export default {
 <style lang="scss" scoped>
 .teams {
     grid-area: E;
-    
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -143,7 +145,7 @@ export default {
 
     .v-data-table {
       min-width: 100%;
-      
+
       .text-tab {
         color: black;
       }
