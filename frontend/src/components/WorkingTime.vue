@@ -60,7 +60,7 @@ export default {
     grid-auto-rows: 100%;
 
     width: 100%;
-    height: 100%;
+    height: calc(100% - 40px);
 
     .working-time-content {
       display: flex;
