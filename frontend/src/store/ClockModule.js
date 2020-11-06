@@ -44,8 +44,6 @@ export const ClockModule = {
   },
   actions: {
     startTimer: (context, currentUserId) => {
-      context.commit('startTimer', { currentUserId });
-
       fetch(`${apiUrl}/working_times`, {
         method: 'POST',
         headers: {
@@ -58,12 +56,13 @@ export const ClockModule = {
           }
         })
       }).then(res => res.json())
-        .then(json => console.log('START WORK', json))
+        .then(json => {
+          console.log('START WORK', json);
+          context.commit('startTimer', { currentUserId });
+        })
         .catch(err => console.error(err));
     },
     stopTimer: (context, currentUserId) => {
-      context.commit('stopTimer', { currentUserId });
-
       fetch(`${apiUrl}/working_times_by_user/stop/${UserModule.state.user_id}`, {
         method: 'PUT',
         headers: {
@@ -76,7 +75,10 @@ export const ClockModule = {
           }
         })
       }).then(res => res.json())
-        .then(json => console.log('STOP WORK', json))
+        .then(json => {
+          console.log('STOP WORK', json);
+          context.commit('stopTimer', { currentUserId });
+        })
         .catch(err => console.error(err));
     }
   },

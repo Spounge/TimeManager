@@ -13,14 +13,6 @@ export const UserModule = {
     email: null,
     token: null
   },
-  // state: { // FAKE STATE
-  //   user_id: 1,
-  //   first_name: "John",
-  //   last_name: "Doe",
-  //   email: "john@doe.com",
-  //   role: "Top Manager",
-  //   token: "faketoken"
-  // },
   getters: {
     fullname: (state) => {
       return state.first_name || state.last_name

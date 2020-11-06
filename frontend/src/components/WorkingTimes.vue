@@ -85,7 +85,7 @@ export default {
       .then(res => res.json())
       .then(json => {
         console.log('wk', json);
-        let newData = json.data.map((workingTime) => {
+        this.workingTimesData = json.data.map((workingTime) => {
           return {
             ...workingTime,
             duration: secondToHHMMSS((
@@ -93,8 +93,6 @@ export default {
             ) / 1000)
           }
         });
-        this.workingTimesData = [...newData];
-        this.$forceUpdate();
       });
     },
     toggleForm(show = true) {
@@ -113,19 +111,13 @@ export default {
         headers: {
           "Content-Type": "application/json",
         }
-      }).then(() => this.refreshWorkintTimes(0))
+      }).then(() => this.fetchWorkingTimes())
         .catch(e => console.error(e));
     },
-    refreshWorkintTimes(ms) {
-      this.refreshTimeout = setTimeout(() => {
-        this.fetchWorkingTimes();
-        clearTimeout(this.refreshTimeout);
-      }, ms);
-    }
   },
   watch: {
     timerInterval() {
-      this.refreshWorkintTimes(50);
+      this.fetchWorkingTimes();
     },
   }
 };
