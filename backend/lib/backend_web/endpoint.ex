@@ -7,7 +7,7 @@ defmodule TimeManagerApiWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_backend_key",
-    signing_salt: "/UjWiRXN"
+    signing_salt: "PeS37i4x"
   ]
 
   socket "/socket", TimeManagerApiWeb.UserSocket,
@@ -20,6 +20,8 @@ defmodule TimeManagerApiWeb.Endpoint do
   #
   # You should set gzip to true if you are running phx.digest
   # when deploying your static files in production.
+  plug Corsica, origins: "http://localhost:4200", allow_headers: ["content-type"]
+
   plug Plug.Static,
     at: "/",
     from: :backend,

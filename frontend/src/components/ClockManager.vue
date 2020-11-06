@@ -38,8 +38,18 @@ export default {
     ...mapState("clock", { clock: (state) => state }),
     ...mapGetters("clock", { currentTime: "currentTime" }),
   },
+  data: () => ({
+    user: {
+      id: null,
+      first_name: null,
+      last_name: null,
+      email: null,
+      token: null,
+    }
+  }),
   methods: {
     ...mapActions("clock", ["startTimer", "stopTimer"]),
+    ...mapActions("user", ["setUser"]),
   },
 };
 </script>

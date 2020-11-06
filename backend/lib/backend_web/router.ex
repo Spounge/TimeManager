@@ -13,6 +13,22 @@ defmodule TimeManagerApiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", TimeManagerApiWeb do
+
+    resources "/users", UserController
+    post "/login", UserController, :login
+
+    resources "/roles", RoleController
+
+    resources "/teams", TeamController
+
+    resources "/working_times", WorkingTimeController
+    get "/working_times_by_user/:id", WorkingTimeController, :getByUserId
+    get "/working_times_by_user/last/:id", WorkingTimeController, :getLastWorkingTime
+    put "/working_times_by_user/stop/:user_id", WorkingTimeController, :stopWorkingTime
+
+  end
+
   scope "/", TimeManagerApiWeb do
     pipe_through :browser
 

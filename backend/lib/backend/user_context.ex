@@ -37,6 +37,17 @@ defmodule TimeManagerApi.UserContext do
   """
   def get_user!(id), do: Repo.get!(User, id)
 
+
+  def login!(credentials) do
+    query = Ecto.Query.from(u in User,
+    where: u.username == ^credentials["username"]
+      and u.password == ^credentials["password"]
+    )
+    user = Repo.one!(query)
+  end
+
+  @spec create_user(:invalid | %{optional(:__struct__) => none, optional(atom | binary) => any}) ::
+          any
   @doc """
   Creates a user.
 

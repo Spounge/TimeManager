@@ -1,5 +1,8 @@
 <template>
-  <div class="sidebar">
+  <div
+    class="sidebar"
+    :class="{ active: (user.user_id) }"
+  >
     <SidebarHeader></SidebarHeader>
 
     <span class="white-line"></span>
@@ -72,12 +75,19 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   height: 100%;
-  min-width: 300px;
-  max-width: 300px;
   color: white;
   background: #066aa7;
+
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+
+  min-width: 0;
+  max-width: 0;
+  &.active {
+    min-width: 300px;
+    max-width: 300px;
+  }
 }
 
 .white-line {

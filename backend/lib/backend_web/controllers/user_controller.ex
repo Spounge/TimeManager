@@ -1,6 +1,8 @@
 defmodule TimeManagerApiWeb.UserController do
   use TimeManagerApiWeb, :controller
 
+  require Logger
+
   alias TimeManagerApi.UserContext
   alias TimeManagerApi.UserContext.User
 
@@ -40,4 +42,10 @@ defmodule TimeManagerApiWeb.UserController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def login(conn, params) do
+    user = UserContext.login!(params["credentials"])
+    render(conn, "show.json", user: user)
+  end
+
 end

@@ -21,6 +21,12 @@ defmodule TimeManagerApi.WorkingTimeContext do
     Repo.all(WorkingTime)
   end
 
+  def list_working_times_by_user_id(id) do
+    Repo.all(from wk in WorkingTime,
+      where: wk.user_id == ^id
+    )
+  end
+
   @doc """
   Gets a single working_time.
 
@@ -72,6 +78,37 @@ defmodule TimeManagerApi.WorkingTimeContext do
     |> WorkingTime.changeset(attrs)
     |> Repo.update()
   end
+
+  def start_working_time(attrs \\ %{}) do
+    %WorkingTime{}
+    |> WorkingTime.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def stop_working_time(%WorkingTime{} = working_time, attrs) do
+    working_time
+    |> WorkingTime.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def get_last_ongoing_working_time!(id) do
+    query = Ecto.Query.from(wk in WorkingTime,
+      where: is_nil(wk.end) and wk.user_id == ^id,
+      order_by: [desc: wk.inserted_at],
+      limit: 1
+    )
+    working_time = Repo.one!(query)
+  end
+
+  def get_last_working_time!(id) do
+    query = Ecto.Query.from(wk in WorkingTime,
+      where: wk.user_id == ^id,
+      order_by: [desc: wk.inserted_at],
+      limit: 1
+    )
+    working_time = Repo.one!(query)
+  end
+
 
   @doc """
   Deletes a working_time.

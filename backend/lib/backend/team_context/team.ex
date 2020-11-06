@@ -6,6 +6,9 @@ defmodule TimeManagerApi.TeamContext.Team do
     field :name, :string
     field :manager_id, :id
 
+    has_many :users, TimeManagerApi.UserContext.User
+    has_one :manager, TimeManagerApi.UserContext.User
+
     timestamps()
   end
 

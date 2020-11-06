@@ -5,6 +5,8 @@ defmodule TimeManagerApi.RoleContext.Role do
   schema "roles" do
     field :name, :string
 
+    has_many :users, TimeManagerApi.UserContext.User
+
     timestamps()
   end
 

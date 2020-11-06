@@ -14,10 +14,10 @@ config :backend,
 # Configures the endpoint
 config :backend, TimeManagerApiWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "BIsAXFmmzSnD7OWivUXc2Rc6SHbeDmir5UpIop/kdk6T+UvnaAgS+f2TqW20hoYc",
+  secret_key_base: "3bNxJ7Oj6g2gAFpJL0PgR3CA4j1ElKdJvHebuxkqyOlsJp9xwwSS7XoX8z2eaXvk",
   render_errors: [view: TimeManagerApiWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: TimeManagerApi.PubSub,
-  live_view: [signing_salt: "03QPRWu4"]
+  live_view: [signing_salt: "/g95ID6v"]
 
 # Configures Elixir's Logger
 config :logger, :console,

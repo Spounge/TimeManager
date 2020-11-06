@@ -10,13 +10,16 @@ defmodule TimeManagerApi.UserContext.User do
     field :username, :string
     field :role_id, :id
 
+    has_one :role, TimeManagerApi.RoleContext.Role
+    has_many :working_times, TimeManagerApi.WorkingTimeContext.WorkingTime
+
     timestamps()
   end
 
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:first_name, :last_name, :username, :email, :password])
-    |> validate_required([:first_name, :last_name, :username, :email, :password])
+    |> cast(attrs, [:first_name, :last_name, :username, :email, :password, :role_id])
+    |> validate_required([:first_name, :last_name, :username, :email, :password, :role_id])
   end
 end
